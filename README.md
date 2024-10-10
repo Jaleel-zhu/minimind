@@ -25,9 +25,9 @@
 
 </div>
 
-* 本开源项目旨在完全从0开始，最快仅用3小时！即可训练出仅为26M大小的微型语言模型**MiniMind**。
-* **MiniMind**极其轻量，体积约是 GPT3 的 $\frac{1}{7000}$，力求做到最普通的个人GPU也可快速推理甚至训练。
-* **MiniMind**改进自DeepSeek-V2、Llama3结构，项目包含整个数据处理、pretrain、sft、dpo的全部阶段，包含混合专家(MoE)模型。
+* 本开源项目旨在完全从0开始，最快仅用3小时！即可训练出仅为26.88M大小的微型语言模型**MiniMind**。
+* **MiniMind**极其轻量，最小版本体积约是 GPT3 的 $\frac{1}{7000}$，力求做到最普通的个人GPU也可快速推理甚至训练。
+* **MiniMind**发布了大模型极简结构，数据集清洗和预处理、监督预训练(Pretrain)、有监督指令微调(SFT)、低秩自适应(LoRA)微调，无奖励强化学习直接偏好对齐(DPO)的全阶段代码，也包含拓展共享混合专家(MoE)的稀疏模型；拓展视觉多模态VLM: [MiniMind-V](https://github.com/jingyaogong/minimind-v)。
 * 这不仅是一个开源模型的实现，也是入门大语言模型（LLM）的教程。
 * 希望此项目能为研究者提供一个抛砖引玉的入门示例，帮助大家快速上手并对LLM领域产生更多的探索与创新。
 
@@ -35,11 +35,16 @@
 
 ---
 
+
+
+
 <div align="center">
 
-https://github.com/user-attachments/assets/88b98128-636e-43bc-a419-b1b1403c2055
+![streamlit](./images/streamlit.gif)
 
-[Bilibili视频链接](https://www.bilibili.com/video/BV12dHPeqE72/?share_source=copy_web&vd_source=670c2504f88726f8cf4a21ef6147c0e8)
+[ModelScope在线测试](https://www.modelscope.cn/studios/gongjy/minimind) | [Bilibili视频链接](https://www.bilibili.com/video/BV12dHPeqE72/?share_source=copy_web&vd_source=670c2504f88726f8cf4a21ef6147c0e8) 
+
+---
 
 </div>
 
@@ -116,7 +121,7 @@ https://github.com/user-attachments/assets/88b98128-636e-43bc-a419-b1b1403c2055
 
 - 项目已部署至ModelScope创空间，可以在此网站上体验：
 
-- [ModelScope在线体验](https://www.modelscope.cn/studios/gongjy/minimind)
+- [🔗ModelScope在线体验🔗](https://www.modelscope.cn/studios/gongjy/minimind)
 
 </details>
 
@@ -175,18 +180,8 @@ python 2-eval.py
 streamlit run fast_inference.py
 ```
 
-![](./images/streamlit.png)
 
-<div align="center">
-
-项目已部署至ModelScope创空间，可以在此网站上体验：
-
-[ModelScope在线体验](https://www.modelscope.cn/studios/gongjy/minimind)
-
-
-</div>
-
-# 📌 Quick Start
+# 📌 Quick Start Train
 
 * 0、克隆项目代码
     ```bash
@@ -198,7 +193,7 @@ streamlit run fast_inference.py
   pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
   ```
   
-  ```python
+  ```text
   # 测试torch是否可用cuda
   import torch
   print(torch.cuda.is_available())
